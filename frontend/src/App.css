@@ -1,0 +1,1117 @@
+/* ============================================================
+   DOCUMIND AI
+   APP LAYOUT
+   Spacious • Clean • Responsive
+============================================================ */
+
+
+/* ============================================================
+   GLOBAL
+============================================================ */
+
+:root {
+  --app-bg: #f5f7fa;
+  --app-surface: #ffffff;
+
+  --app-text: #1e293b;
+  --app-text-secondary: #64748b;
+  --app-text-muted: #94a3b8;
+
+  --app-border: #e2e8f0;
+  --app-border-light: #eef2f6;
+
+  --app-primary: #2563eb;
+  --app-primary-dark: #1d4ed8;
+  --app-primary-light: #eff6ff;
+
+  --app-success: #16a34a;
+  --app-danger: #dc2626;
+
+  --app-sidebar-width: 250px;
+}
+
+
+/* ============================================================
+   RESET
+============================================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+
+  background: var(--app-bg);
+
+  color: var(--app-text);
+
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--app-primary);
+  outline-offset: 2px;
+}
+
+
+/* ============================================================
+   APP
+============================================================ */
+
+.app {
+  display: flex;
+
+  width: 100%;
+  min-height: 100vh;
+
+  background: var(--app-bg);
+}
+
+
+/* ============================================================
+   MAIN CONTENT
+============================================================ */
+
+.main-content {
+  flex: 1;
+
+  min-width: 0;
+  min-height: 100vh;
+
+  padding: 0;
+
+  background: var(--app-bg);
+}
+
+.page-content {
+  width: 100%;
+  max-width: 1600px;
+
+  margin: 0 auto;
+
+  padding: 34px 42px 50px;
+}
+
+
+/* ============================================================
+   PAGE INTRO
+   Dashboard only
+============================================================ */
+
+.page-intro {
+  margin-bottom: 32px;
+
+  animation:
+    page-intro-fade 0.45s ease both;
+}
+
+.page-eyebrow {
+  display: inline-flex;
+  align-items: center;
+
+  margin-bottom: 9px;
+
+  color: var(--app-primary);
+
+  font-size: 10px;
+  line-height: 1;
+
+  font-weight: 800;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+}
+
+.page-intro h1 {
+  margin: 0;
+
+  color: var(--app-text);
+
+  font-size: clamp(28px, 3vw, 38px);
+
+  line-height: 1.15;
+
+  font-weight: 750;
+
+  letter-spacing: -0.035em;
+}
+
+.page-intro p {
+  max-width: 680px;
+
+  margin: 10px 0 0;
+
+  color: var(--app-text-secondary);
+
+  font-size: 13px;
+
+  line-height: 1.7;
+}
+
+@keyframes page-intro-fade {
+  from {
+    opacity: 0;
+
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+
+/* ============================================================
+   UPLOAD OVERLAY
+============================================================ */
+
+.upload-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 2000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background: rgba(15, 23, 42, 0.48);
+
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+.upload-modal {
+  width: min(100%, 430px);
+
+  padding: 32px;
+
+  text-align: center;
+
+  background: var(--app-surface);
+
+  border: 1px solid var(--app-border);
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 20px 50px rgba(15, 23, 42, 0.18);
+
+  animation:
+    upload-modal-enter 0.25s ease both;
+}
+
+@keyframes upload-modal-enter {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(8px)
+      scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+.upload-spinner {
+  width: 34px;
+  height: 34px;
+
+  margin: 0 auto 20px;
+
+  border: 3px solid var(--app-border);
+
+  border-top-color: var(--app-primary);
+
+  border-radius: 50%;
+
+  animation:
+    app-upload-spin 0.75s linear infinite;
+}
+
+@keyframes app-upload-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.upload-modal h3 {
+  margin: 0 0 8px;
+
+  color: var(--app-text);
+
+  font-size: 17px;
+
+  line-height: 1.3;
+
+  font-weight: 700;
+}
+
+.upload-modal p {
+  max-width: 330px;
+
+  margin: 0 auto 22px;
+
+  color: var(--app-text-secondary);
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+.upload-progress {
+  width: 100%;
+  height: 7px;
+
+  overflow: hidden;
+
+  background: var(--app-border-light);
+
+  border-radius: 999px;
+}
+
+.upload-progress-bar {
+  height: 100%;
+
+  background: var(--app-primary);
+
+  border-radius: inherit;
+
+  transition:
+    width 0.25s ease;
+}
+
+.upload-modal > span {
+  display: block;
+
+  margin-top: 10px;
+
+  color: var(--app-text-secondary);
+
+  font-size: 11px;
+
+  font-weight: 600;
+}
+
+
+/* ============================================================
+   DOCUMENT VIEWER OVERLAY
+============================================================ */
+
+.document-viewer-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 1900;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 28px;
+
+  background: rgba(15, 23, 42, 0.58);
+
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+
+  animation:
+    viewer-overlay-enter 0.2s ease both;
+}
+
+@keyframes viewer-overlay-enter {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* ============================================================
+   DOCUMENT VIEWER
+============================================================ */
+
+.document-viewer {
+  display: flex;
+
+  flex-direction: column;
+
+  width: min(100%, 1050px);
+
+  max-height:
+    min(850px, calc(100vh - 56px));
+
+  overflow: hidden;
+
+  background: var(--app-surface);
+
+  border: 1px solid var(--app-border);
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 24px 70px rgba(15, 23, 42, 0.22);
+
+  animation:
+    viewer-enter 0.25s ease both;
+}
+
+@keyframes viewer-enter {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(10px)
+      scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+/* ============================================================
+   VIEWER HEADER
+============================================================ */
+
+.document-viewer-header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 24px;
+
+  padding: 20px 24px;
+
+  border-bottom:
+    1px solid var(--app-border-light);
+}
+
+.document-viewer-header > div:first-child {
+  min-width: 0;
+}
+
+.document-viewer-header h2 {
+  margin: 0;
+
+  overflow: hidden;
+
+  color: var(--app-text);
+
+  font-size: 16px;
+
+  line-height: 1.4;
+
+  font-weight: 650;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+.document-viewer-meta {
+  margin-top: 5px;
+
+  color: var(--app-text-muted);
+
+  font-size: 11px;
+
+  line-height: 1.4;
+}
+
+.document-viewer-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  flex-shrink: 0;
+}
+
+
+/* ============================================================
+   VIEWER BUTTONS
+============================================================ */
+
+.viewer-download-button,
+.document-viewer-close {
+  min-height: 36px;
+
+  padding: 0 13px;
+
+  border-radius: 7px;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.viewer-download-button:hover,
+.document-viewer-close:hover {
+  transform: translateY(-1px);
+}
+
+.viewer-download-button:active,
+.document-viewer-close:active {
+  transform: translateY(0);
+}
+
+.viewer-download-button {
+  color: #ffffff;
+
+  background: var(--app-primary);
+
+  border: 1px solid var(--app-primary);
+}
+
+.viewer-download-button:hover {
+  background: var(--app-primary-dark);
+
+  border-color: var(--app-primary-dark);
+
+  box-shadow:
+    0 5px 12px rgba(37, 99, 235, 0.18);
+}
+
+.document-viewer-close {
+  color: var(--app-text-secondary);
+
+  background: var(--app-surface);
+
+  border: 1px solid var(--app-border);
+}
+
+.document-viewer-close:hover {
+  color: var(--app-text);
+
+  background: #f8fafc;
+
+  border-color: #cbd5e1;
+}
+
+
+/* ============================================================
+   VIEWER BODY
+============================================================ */
+
+.document-viewer-body {
+  flex: 1;
+
+  min-height: 300px;
+
+  overflow-y: auto;
+
+  overflow-x: hidden;
+}
+
+
+/* ============================================================
+   EMPTY / DOCUMENT VIEWER STATE
+============================================================ */
+
+.empty-viewer {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 430px;
+
+  padding: 50px 30px;
+
+  text-align: center;
+
+  color: var(--app-text-secondary);
+}
+
+.empty-viewer svg {
+  margin-bottom: 18px;
+
+  color: var(--app-primary);
+}
+
+.empty-viewer h3 {
+  max-width: 620px;
+
+  margin: 0 0 10px;
+
+  color: var(--app-text);
+
+  font-size: 16px;
+
+  line-height: 1.4;
+
+  font-weight: 650;
+
+  overflow-wrap: anywhere;
+}
+
+.empty-viewer p {
+  max-width: 570px;
+
+  margin: 0;
+
+  color: var(--app-text-secondary);
+
+  font-size: 12px;
+
+  line-height: 1.7;
+}
+
+
+/* ============================================================
+   VIEWER DOCUMENT INFORMATION
+============================================================ */
+
+.viewer-document-info {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  width: min(100%, 650px);
+
+  margin-top: 28px;
+
+  overflow: hidden;
+
+  border: 1px solid var(--app-border);
+
+  border-radius: 10px;
+}
+
+.viewer-document-info > div {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 6px;
+
+  padding: 17px 20px;
+
+  background: var(--app-surface);
+
+  border-right:
+    1px solid var(--app-border);
+}
+
+.viewer-document-info > div:last-child {
+  border-right: 0;
+}
+
+.viewer-document-info span {
+  color: var(--app-text-muted);
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.05em;
+}
+
+.viewer-document-info strong {
+  color: var(--app-text);
+
+  font-size: 14px;
+
+  font-weight: 700;
+}
+
+.viewer-file-unavailable {
+  max-width: 570px;
+
+  margin-top: 20px !important;
+
+  padding: 11px 14px;
+
+  color: #92400e !important;
+
+  background: #fffbeb;
+
+  border: 1px solid #fde68a;
+
+  border-radius: 8px;
+}
+
+
+/* ============================================================
+   HIDE SCROLLBARS
+============================================================ */
+
+html,
+body,
+.main-content,
+.document-viewer-body {
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+.main-content::-webkit-scrollbar,
+.document-viewer-body::-webkit-scrollbar {
+  display: none;
+
+  width: 0;
+  height: 0;
+}
+
+
+/* ============================================================
+   DARK MODE
+============================================================ */
+
+html[data-theme="dark"] {
+  --app-bg: #0f172a;
+
+  --app-surface: #172033;
+
+  --app-text: #f1f5f9;
+
+  --app-text-secondary: #94a3b8;
+
+  --app-text-muted: #64748b;
+
+  --app-border: #293548;
+
+  --app-border-light: #222d3f;
+
+  --app-primary: #60a5fa;
+
+  --app-primary-dark: #93c5fd;
+
+  --app-primary-light: #172554;
+
+  --app-success: #4ade80;
+
+  --app-danger: #f87171;
+}
+
+html[data-theme="dark"] body {
+  background: var(--app-bg);
+
+  color: var(--app-text);
+}
+
+html[data-theme="dark"] .app,
+html[data-theme="dark"] .main-content {
+  background: var(--app-bg);
+}
+
+
+/* ============================================================
+   DARK MODE — PAGE INTRO
+============================================================ */
+
+html[data-theme="dark"] .page-eyebrow {
+  color: var(--app-primary);
+}
+
+html[data-theme="dark"] .page-intro h1 {
+  color: var(--app-text);
+}
+
+html[data-theme="dark"] .page-intro p {
+  color: var(--app-text-secondary);
+}
+
+
+/* ============================================================
+   DARK MODE — VIEWER
+============================================================ */
+
+html[data-theme="dark"] .document-viewer {
+  background: var(--app-surface);
+
+  border-color: var(--app-border);
+}
+
+html[data-theme="dark"] .document-viewer-header {
+  border-bottom-color:
+    var(--app-border-light);
+}
+
+html[data-theme="dark"] .document-viewer-header h2 {
+  color: var(--app-text);
+}
+
+html[data-theme="dark"] .document-viewer-meta {
+  color: var(--app-text-muted);
+}
+
+html[data-theme="dark"] .document-viewer-close {
+  color: var(--app-text-secondary);
+
+  background: var(--app-surface);
+
+  border-color: var(--app-border);
+}
+
+html[data-theme="dark"] .document-viewer-close:hover {
+  color: var(--app-text);
+
+  background: #1d293d;
+
+  border-color: #344257;
+}
+
+html[data-theme="dark"] .viewer-document-info {
+  border-color: var(--app-border);
+}
+
+html[data-theme="dark"] .viewer-document-info > div {
+  background: var(--app-surface);
+
+  border-right-color:
+    var(--app-border);
+}
+
+html[data-theme="dark"] .viewer-file-unavailable {
+  color: #fbbf24 !important;
+
+  background: #2a2110;
+
+  border-color: #5b4614;
+}
+
+
+/* ============================================================
+   DARK MODE — UPLOAD
+============================================================ */
+
+html[data-theme="dark"] .upload-modal {
+  background: var(--app-surface);
+
+  border-color: var(--app-border);
+}
+
+html[data-theme="dark"] .upload-spinner {
+  border-color: var(--app-border);
+
+  border-top-color:
+    var(--app-primary);
+}
+
+html[data-theme="dark"] .upload-progress {
+  background: var(--app-border-light);
+}
+
+
+/* ============================================================
+   LARGE DESKTOP
+============================================================ */
+
+@media (min-width: 1500px) {
+  .page-content {
+    padding-left: 52px;
+
+    padding-right: 52px;
+  }
+}
+
+
+/* ============================================================
+   LARGE TABLET
+============================================================ */
+
+@media (max-width: 1100px) {
+  .page-content {
+    padding: 30px 30px 44px;
+  }
+
+  .page-intro {
+    margin-bottom: 28px;
+  }
+
+  .page-intro h1 {
+    font-size: 32px;
+  }
+}
+
+
+/* ============================================================
+   TABLET
+============================================================ */
+
+@media (max-width: 900px) {
+  .page-content {
+    padding: 28px 24px 40px;
+  }
+
+  .page-intro {
+    margin-bottom: 28px;
+  }
+
+  .page-intro h1 {
+    font-size: 30px;
+  }
+
+  .page-intro p {
+    font-size: 12px;
+  }
+
+  .document-viewer-overlay {
+    padding: 20px;
+  }
+
+  .document-viewer {
+    max-height:
+      calc(100vh - 40px);
+  }
+}
+
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media (max-width: 700px) {
+  .app {
+    min-width: 0;
+  }
+
+  /*
+   * Sidebar becomes fixed and 72px wide
+   * at this breakpoint.
+   */
+
+  .main-content {
+    width: calc(100% - 72px);
+
+    margin-left: 72px;
+  }
+
+  .page-content {
+    padding: 24px 18px 34px;
+  }
+
+  .page-intro {
+    margin-bottom: 24px;
+  }
+
+  .page-eyebrow {
+    margin-bottom: 8px;
+
+    font-size: 9px;
+  }
+
+  .page-intro h1 {
+    font-size: 27px;
+  }
+
+  .page-intro p {
+    margin-top: 8px;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+  }
+
+  .upload-overlay {
+    padding: 16px;
+  }
+
+  .upload-modal {
+    padding: 27px 22px;
+  }
+
+  .document-viewer-overlay {
+    align-items: flex-start;
+
+    padding: 12px;
+  }
+
+  .document-viewer {
+    width: 100%;
+
+    max-height:
+      calc(100vh - 24px);
+
+    border-radius: 12px;
+  }
+
+  .document-viewer-header {
+    align-items: flex-start;
+
+    padding: 17px;
+
+    gap: 15px;
+  }
+
+  .document-viewer-actions {
+    gap: 6px;
+  }
+
+  .viewer-download-button,
+  .document-viewer-close {
+    min-height: 34px;
+
+    padding: 0 10px;
+  }
+
+  .empty-viewer {
+    min-height: 360px;
+
+    padding: 38px 20px;
+  }
+
+  .viewer-document-info {
+    grid-template-columns: 1fr;
+
+    width: 100%;
+  }
+
+  .viewer-document-info > div {
+    border-right: 0;
+
+    border-bottom:
+      1px solid var(--app-border);
+  }
+
+  .viewer-document-info > div:last-child {
+    border-bottom: 0;
+  }
+}
+
+
+/* ============================================================
+   SMALL PHONES
+============================================================ */
+
+@media (max-width: 400px) {
+  .main-content {
+    width: calc(100% - 64px);
+
+    margin-left: 64px;
+  }
+
+  .page-content {
+    padding: 20px 13px 28px;
+  }
+
+  .page-eyebrow {
+    font-size: 8px;
+  }
+
+  .page-intro h1 {
+    font-size: 24px;
+  }
+
+  .page-intro p {
+    font-size: 11px;
+  }
+
+  .document-viewer-header {
+    flex-direction: column;
+  }
+
+  .document-viewer-actions {
+    width: 100%;
+  }
+
+  .viewer-download-button,
+  .document-viewer-close {
+    flex: 1;
+  }
+
+  .upload-modal {
+    padding: 24px 18px;
+  }
+}
+
+
+/* ============================================================
+   REDUCED MOTION
+============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .page-intro,
+  .upload-modal,
+  .document-viewer-overlay,
+  .document-viewer {
+    animation: none;
+  }
+
+  .upload-spinner {
+    animation: none;
+  }
+
+  .viewer-download-button,
+  .document-viewer-close,
+  .upload-progress-bar {
+    transition: none;
+  }
+}

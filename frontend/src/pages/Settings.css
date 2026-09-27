@@ -1,0 +1,1851 @@
+/* =========================================================
+   DOCUMIND AI — SETTINGS
+   Modern / Clean / Interactive UI
+========================================================= */
+
+:root {
+  --settings-primary: #2563eb;
+  --settings-primary-dark: #1d4ed8;
+  --settings-primary-light: #eff6ff;
+  --settings-primary-border: #bfdbfe;
+
+  --settings-bg: #f5f7fa;
+  --settings-card: #ffffff;
+  --settings-card-hover: #fbfdff;
+
+  --settings-text: #172033;
+  --settings-secondary: #64748b;
+  --settings-muted: #94a3b8;
+
+  --settings-border: #e2e8f0;
+  --settings-border-light: #eef2f6;
+
+  --settings-success: #16a34a;
+  --settings-success-bg: #f0fdf4;
+  --settings-success-border: #bbf7d0;
+
+  --settings-danger: #dc2626;
+  --settings-danger-bg: #fef2f2;
+
+  --settings-radius: 11px;
+
+  --settings-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.03),
+    0 5px 16px rgba(15, 23, 42, 0.035);
+
+  --settings-transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.settings-page {
+  width: 100%;
+  max-width: 1450px;
+
+  min-height: calc(100vh - 70px);
+
+  margin: 0 auto;
+
+  padding: 10px 30px 40px;
+
+  box-sizing: border-box;
+
+  color: var(--settings-text);
+
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.settings-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 28px;
+
+  min-height: 112px;
+
+  padding: 22px 24px;
+
+  margin-bottom: 30px;
+
+  box-sizing: border-box;
+
+  background: var(--settings-card);
+
+  border: 1px solid var(--settings-border);
+  border-radius: var(--settings-radius);
+
+  box-shadow: var(--settings-shadow);
+
+  animation: settingsHeaderIn 500ms cubic-bezier(0.22, 1, 0.36, 1) both;
+
+  transition:
+    border-color var(--settings-transition),
+    box-shadow var(--settings-transition),
+    transform var(--settings-transition);
+}
+
+.settings-page-header:hover {
+  border-color: #d6e0ec;
+
+  box-shadow:
+    0 3px 6px rgba(15, 23, 42, 0.035),
+    0 12px 30px rgba(15, 23, 42, 0.055);
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   HEADER TEXT
+========================================================= */
+
+.settings-eyebrow {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: var(--settings-primary);
+
+  font-size: 10px;
+  font-weight: 750;
+
+  letter-spacing: 0.12em;
+
+  animation: settingsTextIn 550ms 80ms ease both;
+}
+
+.settings-page-header h1 {
+  margin: 0;
+
+  color: var(--settings-text);
+
+  font-size: 29px;
+  line-height: 1.2;
+
+  font-weight: 750;
+
+  letter-spacing: -0.025em;
+
+  animation: settingsTextIn 550ms 130ms ease both;
+}
+
+.settings-page-header p {
+  max-width: 680px;
+
+  margin: 7px 0 0;
+
+  color: var(--settings-secondary);
+
+  font-size: 13px;
+  line-height: 1.55;
+
+  animation: settingsTextIn 550ms 180ms ease both;
+}
+
+
+/* =========================================================
+   HEADER ACTIONS
+========================================================= */
+
+.settings-header-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  flex-shrink: 0;
+
+  animation: settingsActionsIn 550ms 180ms ease both;
+}
+
+.settings-reset-button,
+.settings-save-button {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  min-height: 40px;
+
+  padding: 0 14px;
+
+  overflow: hidden;
+
+  border-radius: 8px;
+
+  font-family: inherit;
+
+  font-size: 11px;
+  font-weight: 650;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+
+  transition:
+    background-color var(--settings-transition),
+    border-color var(--settings-transition),
+    color var(--settings-transition),
+    box-shadow var(--settings-transition),
+    transform var(--settings-transition),
+    opacity var(--settings-transition);
+}
+
+.settings-reset-button svg,
+.settings-save-button svg {
+  transition:
+    transform var(--settings-transition);
+}
+
+
+/* =========================================================
+   RESET BUTTON
+========================================================= */
+
+.settings-reset-button {
+  color: var(--settings-secondary);
+
+  background: var(--settings-card);
+
+  border: 1px solid var(--settings-border);
+}
+
+.settings-reset-button:hover:not(:disabled) {
+  color: var(--settings-text);
+
+  background: var(--settings-bg);
+
+  border-color: #cbd5e1;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 4px 8px rgba(15, 23, 42, 0.045),
+    0 8px 16px rgba(15, 23, 42, 0.035);
+}
+
+.settings-reset-button:hover:not(:disabled) svg {
+  transform: rotate(-25deg);
+}
+
+.settings-reset-button:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   SAVE BUTTON
+========================================================= */
+
+.settings-save-button {
+  color: #ffffff;
+
+  background: var(--settings-primary);
+
+  border: 1px solid var(--settings-primary);
+
+  box-shadow:
+    0 2px 5px rgba(37, 99, 235, 0.12);
+}
+
+.settings-save-button::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -100%;
+
+  width: 70%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.18),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+
+  transition: left 500ms ease;
+
+  pointer-events: none;
+}
+
+.settings-save-button:hover:not(:disabled)::before {
+  left: 140%;
+}
+
+.settings-save-button:hover:not(:disabled) {
+  background: var(--settings-primary-dark);
+
+  border-color: var(--settings-primary-dark);
+
+  box-shadow:
+    0 5px 12px rgba(37, 99, 235, 0.18),
+    0 10px 20px rgba(37, 99, 235, 0.07);
+
+  transform: translateY(-2px);
+}
+
+.settings-save-button:hover:not(:disabled) svg {
+  transform: translateY(-1px) scale(1.05);
+}
+
+.settings-save-button:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+}
+
+.settings-save-button.saved {
+  background: var(--settings-success);
+
+  border-color: var(--settings-success);
+
+  box-shadow:
+    0 4px 10px rgba(22, 163, 74, 0.15);
+
+  animation: saveSuccess 300ms ease both;
+}
+
+.settings-reset-button:disabled,
+.settings-save-button:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+.settings-section {
+  margin-top: 31px;
+
+  animation: settingsSectionIn 500ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.settings-section:first-of-type {
+  margin-top: 0;
+}
+
+.settings-section:nth-of-type(2) {
+  animation-delay: 50ms;
+}
+
+.settings-section:nth-of-type(3) {
+  animation-delay: 100ms;
+}
+
+.settings-section:nth-of-type(4) {
+  animation-delay: 150ms;
+}
+
+.settings-section:nth-of-type(5) {
+  animation-delay: 200ms;
+}
+
+.settings-section:nth-of-type(6) {
+  animation-delay: 250ms;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.settings-section-heading {
+  margin-bottom: 13px;
+}
+
+.settings-section-heading h2 {
+  margin: 0 0 5px;
+
+  color: var(--settings-text);
+
+  font-size: 17px;
+  line-height: 1.35;
+
+  font-weight: 750;
+
+  letter-spacing: -0.01em;
+
+  transition:
+    color var(--settings-transition),
+    transform var(--settings-transition);
+}
+
+.settings-section-heading p {
+  margin: 0;
+
+  color: var(--settings-secondary);
+
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   SETTINGS CARD
+========================================================= */
+
+.settings-card {
+  position: relative;
+
+  overflow: hidden;
+
+  background: var(--settings-card);
+
+  border: 1px solid var(--settings-border);
+
+  border-radius: var(--settings-radius);
+
+  box-shadow: var(--settings-shadow);
+
+  transition:
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease;
+}
+
+.settings-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 2px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--settings-primary),
+    transparent
+  );
+
+  opacity: 0;
+
+  transform: scaleX(0.4);
+
+  transition:
+    opacity 250ms ease,
+    transform 350ms ease;
+}
+
+.settings-card:hover {
+  border-color: #d4deea;
+
+  box-shadow:
+    0 3px 6px rgba(15, 23, 42, 0.035),
+    0 10px 25px rgba(15, 23, 42, 0.05);
+
+  transform: translateY(-2px);
+}
+
+.settings-card:hover::before {
+  opacity: 0.75;
+
+  transform: scaleX(1);
+}
+
+
+/* =========================================================
+   SETTINGS OPTION
+========================================================= */
+
+.settings-option {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 28px;
+
+  min-height: 78px;
+
+  padding: 16px 19px;
+
+  box-sizing: border-box;
+
+  transition:
+    background-color 200ms ease,
+    padding-left 200ms ease;
+}
+
+.settings-option:hover {
+  background: var(--settings-card-hover);
+
+  padding-left: 22px;
+}
+
+
+/* =========================================================
+   OPTION INFORMATION
+========================================================= */
+
+.settings-option-info {
+  min-width: 0;
+
+  flex: 1;
+}
+
+.settings-option-info strong {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: var(--settings-text);
+
+  font-size: 13px;
+  line-height: 1.4;
+
+  font-weight: 650;
+
+  transition:
+    color var(--settings-transition);
+}
+
+.settings-option-info span {
+  display: block;
+
+  max-width: 760px;
+
+  color: var(--settings-secondary);
+
+  font-size: 11px;
+  line-height: 1.55;
+
+  transition:
+    color var(--settings-transition);
+}
+
+.settings-option:hover .settings-option-info strong {
+  color: var(--settings-primary);
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.settings-divider {
+  height: 1px;
+
+  background: var(--settings-border-light);
+
+  transition: background-color var(--settings-transition);
+}
+
+
+/* =========================================================
+   SELECT WRAPPER
+========================================================= */
+
+.theme-select-wrapper {
+  position: relative;
+
+  flex-shrink: 0;
+}
+
+.theme-select-wrapper .select-chevron {
+  transition:
+    transform var(--settings-transition),
+    color var(--settings-transition);
+}
+
+
+/* =========================================================
+   SELECT
+========================================================= */
+
+.settings-select {
+  appearance: none;
+
+  min-width: 130px;
+
+  height: 38px;
+
+  padding: 0 36px 0 12px;
+
+  color: var(--settings-text);
+
+  background: var(--settings-card);
+
+  border: 1px solid var(--settings-border);
+
+  border-radius: 8px;
+
+  outline: none;
+
+  font-family: inherit;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    border-color var(--settings-transition),
+    box-shadow var(--settings-transition),
+    background-color var(--settings-transition),
+    transform var(--settings-transition);
+}
+
+.settings-select:hover {
+  border-color: #b9c7d8;
+
+  background: var(--settings-card-hover);
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 3px 8px rgba(15, 23, 42, 0.04);
+}
+
+.settings-select:focus {
+  border-color: var(--settings-primary);
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.1);
+
+  transform: translateY(-1px);
+}
+
+.theme-select-wrapper:focus-within .select-chevron {
+  color: var(--settings-primary);
+
+  transform:
+    translateY(-50%)
+    rotate(180deg);
+}
+
+
+/* =========================================================
+   SELECT ARROW
+========================================================= */
+
+.select-chevron {
+  position: absolute;
+
+  top: 50%;
+  right: 11px;
+
+  transform: translateY(-50%);
+
+  pointer-events: none;
+
+  color: var(--settings-secondary);
+}
+
+
+/* =========================================================
+   TOGGLE
+========================================================= */
+
+.settings-toggle {
+  position: relative;
+
+  width: 43px;
+  height: 24px;
+
+  flex: 0 0 43px;
+
+  padding: 0;
+
+  border: 1px solid #cbd5e1;
+
+  border-radius: 999px;
+
+  background: #e2e8f0;
+
+  cursor: pointer;
+
+  transition:
+    background-color 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    transform 180ms ease;
+}
+
+.settings-toggle:hover {
+  border-color: #94a3b8;
+
+  transform: scale(1.05);
+
+  box-shadow:
+    0 3px 8px rgba(15, 23, 42, 0.08);
+}
+
+.settings-toggle:active {
+  transform: scale(0.96);
+}
+
+.settings-toggle:focus-visible {
+  outline: none;
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+
+/* =========================================================
+   TOGGLE KNOB
+========================================================= */
+
+.settings-toggle-knob {
+  position: absolute;
+
+  top: 3px;
+  left: 3px;
+
+  width: 16px;
+  height: 16px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 1px 3px rgba(15, 23, 42, 0.25),
+    0 2px 5px rgba(15, 23, 42, 0.08);
+
+  transition:
+    transform 260ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 200ms ease;
+}
+
+.settings-toggle:hover .settings-toggle-knob {
+  box-shadow:
+    0 2px 5px rgba(15, 23, 42, 0.25);
+}
+
+
+/* =========================================================
+   ACTIVE TOGGLE
+========================================================= */
+
+.settings-toggle.active {
+  background: var(--settings-primary);
+
+  border-color: var(--settings-primary);
+
+  box-shadow:
+    0 2px 6px rgba(37, 99, 235, 0.18);
+}
+
+.settings-toggle.active .settings-toggle-knob {
+  transform: translateX(19px);
+
+  box-shadow:
+    0 2px 5px rgba(15, 23, 42, 0.2);
+}
+
+.settings-toggle.active:hover {
+  background: var(--settings-primary-dark);
+
+  border-color: var(--settings-primary-dark);
+
+  box-shadow:
+    0 4px 10px rgba(37, 99, 235, 0.22);
+}
+
+
+/* =========================================================
+   SYSTEM INFORMATION
+========================================================= */
+
+.system-information {
+  padding: 0;
+}
+
+
+/* =========================================================
+   SYSTEM ROW
+========================================================= */
+
+.system-info-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 24px;
+
+  min-height: 68px;
+
+  padding: 13px 19px;
+
+  box-sizing: border-box;
+
+  transition:
+    background-color 200ms ease,
+    padding-left 200ms ease,
+    padding-right 200ms ease;
+}
+
+.system-info-row:hover {
+  background: var(--settings-card-hover);
+
+  padding-left: 22px;
+  padding-right: 22px;
+}
+
+
+/* =========================================================
+   SYSTEM LEFT
+========================================================= */
+
+.system-info-left {
+  display: flex;
+  align-items: center;
+
+  min-width: 0;
+
+  gap: 12px;
+}
+
+.system-info-left > span {
+  color: var(--settings-text);
+
+  font-size: 12px;
+  font-weight: 600;
+
+  transition:
+    color var(--settings-transition);
+}
+
+.system-info-row:hover .system-info-left > span {
+  color: var(--settings-primary);
+}
+
+
+/* =========================================================
+   SYSTEM ICON
+========================================================= */
+
+.system-info-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  flex: 0 0 36px;
+
+  color: var(--settings-primary);
+
+  background: var(--settings-primary-light);
+
+  border: 1px solid rgba(191, 219, 254, 0.7);
+
+  border-radius: 8px;
+
+  transition:
+    transform 250ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    background-color var(--settings-transition),
+    box-shadow var(--settings-transition);
+}
+
+.system-info-row:hover .system-info-icon {
+  transform:
+    translateY(-2px)
+    scale(1.06);
+
+  background: #e5efff;
+
+  box-shadow:
+    0 4px 10px rgba(37, 99, 235, 0.1);
+}
+
+.system-info-row:hover .system-info-icon svg {
+  animation: iconBounce 350ms ease;
+}
+
+
+/* =========================================================
+   SYSTEM VALUE
+========================================================= */
+
+.system-info-value {
+  max-width: 55%;
+
+  overflow: hidden;
+
+  color: var(--settings-secondary);
+
+  font-size: 11px;
+  font-weight: 600;
+
+  text-align: right;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+
+  transition:
+    color var(--settings-transition);
+}
+
+.system-info-row:hover .system-info-value {
+  color: var(--settings-text);
+}
+
+
+/* =========================================================
+   CONNECTED STATUS
+========================================================= */
+
+.system-info-value.status {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 7px;
+
+  color: var(--settings-success);
+
+  font-weight: 650;
+}
+
+.system-status-dot {
+  position: relative;
+
+  width: 7px;
+  height: 7px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: var(--settings-success);
+
+  box-shadow:
+    0 0 0 0 rgba(22, 163, 74, 0.35);
+
+  animation: statusGlow 2.4s ease-out infinite;
+}
+
+.system-status-dot::after {
+  content: "";
+
+  position: absolute;
+
+  inset: -3px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(22, 163, 74, 0.22);
+
+  animation: statusPulse 2s ease-out infinite;
+}
+
+@keyframes statusPulse {
+  0% {
+    opacity: 0.8;
+
+    transform: scale(0.8);
+  }
+
+  70% {
+    opacity: 0;
+
+    transform: scale(1.5);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform: scale(1.5);
+  }
+}
+
+@keyframes statusGlow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 0 rgba(22, 163, 74, 0.25);
+  }
+
+  50% {
+    box-shadow:
+      0 0 0 4px rgba(22, 163, 74, 0.06);
+  }
+}
+
+
+/* =========================================================
+   INFORMATION BOX
+========================================================= */
+
+.settings-info {
+  position: relative;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 12px;
+
+  margin-top: 25px;
+
+  padding: 16px 18px;
+
+  overflow: hidden;
+
+  background: var(--settings-primary-light);
+
+  border: 1px solid #dbeafe;
+
+  border-radius: var(--settings-radius);
+
+  animation: settingsInfoIn 550ms 300ms cubic-bezier(0.22, 1, 0.36, 1) both;
+
+  transition:
+    border-color var(--settings-transition),
+    box-shadow var(--settings-transition),
+    transform var(--settings-transition);
+}
+
+.settings-info::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120px;
+
+  width: 100px;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+
+  transition: left 700ms ease;
+
+  pointer-events: none;
+}
+
+.settings-info:hover {
+  border-color: var(--settings-primary-border);
+
+  box-shadow:
+    0 5px 18px rgba(37, 99, 235, 0.06);
+
+  transform: translateY(-1px);
+}
+
+.settings-info:hover::after {
+  left: 120%;
+}
+
+
+/* =========================================================
+   INFO ICON
+========================================================= */
+
+.settings-info-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 34px;
+  height: 34px;
+
+  flex: 0 0 34px;
+
+  color: var(--settings-primary);
+
+  background: var(--settings-card);
+
+  border: 1px solid #dbeafe;
+
+  border-radius: 8px;
+
+  transition:
+    transform 250ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow var(--settings-transition);
+}
+
+.settings-info:hover .settings-info-icon {
+  transform:
+    rotate(-4deg)
+    scale(1.05);
+
+  box-shadow:
+    0 4px 10px rgba(37, 99, 235, 0.1);
+}
+
+
+/* =========================================================
+   INFO TEXT
+========================================================= */
+
+.settings-info strong {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: var(--settings-text);
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.settings-info p {
+  margin: 0;
+
+  color: var(--settings-secondary);
+
+  font-size: 11px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+html[data-theme="dark"] .settings-page {
+  --settings-primary: #60a5fa;
+  --settings-primary-dark: #93c5fd;
+  --settings-primary-light: #172554;
+  --settings-primary-border: #1e40af;
+
+  --settings-bg: #0f172a;
+  --settings-card: #172033;
+  --settings-card-hover: #1b2638;
+
+  --settings-text: #f1f5f9;
+  --settings-secondary: #94a3b8;
+  --settings-muted: #64748b;
+
+  --settings-border: #293548;
+  --settings-border-light: #222d3f;
+
+  --settings-success: #4ade80;
+  --settings-success-bg: #052e16;
+  --settings-success-border: #166534;
+
+  --settings-danger: #f87171;
+}
+
+
+/* =========================================================
+   DARK MODE — HEADER / CARDS
+========================================================= */
+
+html[data-theme="dark"] .settings-page-header,
+html[data-theme="dark"] .settings-card {
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.18),
+    0 7px 20px rgba(0, 0, 0, 0.1);
+}
+
+html[data-theme="dark"] .settings-page-header:hover {
+  border-color: #34445b;
+
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.22),
+    0 14px 30px rgba(0, 0, 0, 0.12);
+}
+
+html[data-theme="dark"] .settings-card:hover {
+  border-color: #34445b;
+}
+
+
+/* =========================================================
+   DARK MODE — RESET
+========================================================= */
+
+html[data-theme="dark"] .settings-reset-button {
+  background: var(--settings-card);
+
+  border-color: var(--settings-border);
+
+  color: var(--settings-secondary);
+}
+
+html[data-theme="dark"] .settings-reset-button:hover:not(:disabled) {
+  background: var(--settings-card-hover);
+
+  border-color: #3b4a60;
+
+  color: var(--settings-text);
+}
+
+
+/* =========================================================
+   DARK MODE — SAVE
+========================================================= */
+
+html[data-theme="dark"] .settings-save-button {
+  color: #0f172a;
+}
+
+html[data-theme="dark"] .settings-save-button:hover:not(:disabled) {
+  background: #93c5fd;
+
+  border-color: #93c5fd;
+}
+
+html[data-theme="dark"] .settings-save-button.saved {
+  color: #052e16;
+
+  background: #4ade80;
+
+  border-color: #4ade80;
+}
+
+
+/* =========================================================
+   DARK MODE — SELECT
+========================================================= */
+
+html[data-theme="dark"] .settings-select {
+  color: #f1f5f9;
+
+  background: var(--settings-card);
+
+  border-color: var(--settings-border);
+}
+
+html[data-theme="dark"] .settings-select:hover {
+  background: var(--settings-card-hover);
+
+  border-color: #3b4a60;
+}
+
+html[data-theme="dark"] .settings-select option {
+  color: #f1f5f9;
+
+  background: #172033;
+}
+
+
+/* =========================================================
+   DARK MODE — TOGGLE
+========================================================= */
+
+html[data-theme="dark"] .settings-toggle {
+  background: #334155;
+
+  border-color: #475569;
+}
+
+html[data-theme="dark"] .settings-toggle:hover {
+  border-color: #64748b;
+}
+
+html[data-theme="dark"] .settings-toggle.active {
+  background: #2563eb;
+
+  border-color: #2563eb;
+}
+
+html[data-theme="dark"] .settings-toggle.active:hover {
+  background: #3b82f6;
+
+  border-color: #3b82f6;
+}
+
+
+/* =========================================================
+   DARK MODE — SYSTEM ICON
+========================================================= */
+
+html[data-theme="dark"] .system-info-row:hover .system-info-icon {
+  background: #1e3a6f;
+
+  box-shadow:
+    0 4px 12px rgba(96, 165, 250, 0.08);
+}
+
+
+/* =========================================================
+   DARK MODE — INFO
+========================================================= */
+
+html[data-theme="dark"] .settings-info {
+  background: #172554;
+
+  border-color: #1e3a8a;
+}
+
+html[data-theme="dark"] .settings-info:hover {
+  border-color: #3155a5;
+
+  box-shadow:
+    0 6px 20px rgba(37, 99, 235, 0.08);
+}
+
+html[data-theme="dark"] .settings-info-icon {
+  background: #172033;
+
+  border-color: #293548;
+}
+
+
+/* =========================================================
+   LARGE TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+  .settings-page {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .settings-page-header {
+    padding: 21px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  .settings-page {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .settings-page-header {
+    gap: 20px;
+  }
+
+  .settings-page-header h1 {
+    font-size: 27px;
+  }
+
+  .settings-option {
+    min-height: 74px;
+
+    padding: 15px 17px;
+  }
+
+  .settings-option:hover {
+    padding-left: 20px;
+  }
+}
+
+
+/* =========================================================
+   SMALL TABLET
+========================================================= */
+
+@media (max-width: 800px) {
+  .settings-page-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 18px;
+  }
+
+  .settings-header-actions {
+    width: 100%;
+  }
+
+  .settings-reset-button,
+  .settings-save-button {
+    flex: 1;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .settings-page {
+    min-height: auto;
+
+    padding: 8px 15px 30px;
+  }
+
+  .settings-page-header {
+    min-height: auto;
+
+    padding: 19px;
+
+    margin-bottom: 26px;
+  }
+
+  .settings-page-header:hover {
+    transform: none;
+  }
+
+  .settings-page-header h1 {
+    font-size: 25px;
+  }
+
+  .settings-page-header p {
+    font-size: 12px;
+  }
+
+  .settings-header-actions {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    width: 100%;
+  }
+
+  .settings-reset-button,
+  .settings-save-button {
+    width: 100%;
+
+    min-height: 40px;
+  }
+
+
+  /* Sections */
+
+  .settings-section {
+    margin-top: 27px;
+  }
+
+  .settings-section-heading {
+    margin-bottom: 11px;
+  }
+
+  .settings-section-heading h2 {
+    font-size: 16px;
+  }
+
+  .settings-section-heading p {
+    font-size: 11px;
+  }
+
+
+  /* Options */
+
+  .settings-option {
+    align-items: flex-start;
+
+    gap: 15px;
+
+    min-height: 76px;
+
+    padding: 15px;
+  }
+
+  .settings-option:hover {
+    padding-left: 17px;
+  }
+
+  .settings-option-info {
+    padding-right: 4px;
+  }
+
+  .settings-option-info strong {
+    font-size: 12px;
+  }
+
+  .settings-option-info span {
+    font-size: 10px;
+
+    line-height: 1.5;
+  }
+
+
+  /* Select */
+
+  .settings-select {
+    min-width: 112px;
+
+    height: 36px;
+
+    font-size: 10px;
+  }
+
+
+  /* Toggle */
+
+  .settings-toggle {
+    margin-top: 2px;
+  }
+
+
+  /* System information */
+
+  .system-info-row {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 9px;
+
+    min-height: 70px;
+
+    padding: 13px 15px;
+  }
+
+  .system-info-row:hover {
+    padding-left: 17px;
+    padding-right: 17px;
+  }
+
+  .system-info-left {
+    width: 100%;
+  }
+
+  .system-info-value {
+    max-width: calc(100% - 45px);
+
+    margin-left: 48px;
+
+    text-align: left;
+  }
+
+  .system-info-value.status {
+    margin-left: 48px;
+  }
+
+
+  /* Info */
+
+  .settings-info {
+    padding: 15px;
+  }
+
+  .settings-info p {
+    font-size: 10px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 450px) {
+  .settings-page {
+    padding-left: 11px;
+    padding-right: 11px;
+  }
+
+  .settings-page-header {
+    padding: 17px;
+  }
+
+  .settings-page-header h1 {
+    font-size: 23px;
+  }
+
+  .settings-page-header p {
+    font-size: 11px;
+  }
+
+  .settings-section-heading h2 {
+    font-size: 15px;
+  }
+
+  .settings-section-heading p {
+    font-size: 10px;
+  }
+
+  .settings-option {
+    padding: 14px;
+  }
+
+  .settings-option:not(:has(.settings-toggle)) {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 11px;
+  }
+
+  .settings-option:not(:has(.settings-toggle)):hover {
+    padding-left: 16px;
+  }
+
+  .theme-select-wrapper {
+    width: 100%;
+  }
+
+  .settings-select {
+    width: 100%;
+  }
+
+  .settings-toggle {
+    align-self: flex-start;
+  }
+
+  .system-info-row {
+    padding: 12px 14px;
+  }
+
+  .settings-info {
+    gap: 9px;
+
+    padding: 13px;
+  }
+
+  .settings-info-icon {
+    width: 31px;
+    height: 31px;
+
+    flex-basis: 31px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+  .settings-page {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .settings-page-header {
+    padding: 15px;
+  }
+
+  .settings-page-header h1 {
+    font-size: 21px;
+  }
+
+  .settings-page-header p {
+    font-size: 10px;
+  }
+
+  .settings-option-info strong {
+    font-size: 11px;
+  }
+
+  .settings-option-info span {
+    font-size: 9.5px;
+  }
+
+  .settings-section-heading h2 {
+    font-size: 14px;
+  }
+
+  .settings-section-heading p {
+    font-size: 9.5px;
+  }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.settings-reset-button:focus-visible,
+.settings-save-button:focus-visible,
+.settings-select:focus-visible {
+  outline: 2px solid var(--settings-primary);
+
+  outline-offset: 2px;
+}
+
+
+/* =========================================================
+   HIDE SCROLLBARS
+========================================================= */
+
+.settings-page,
+.settings-page * {
+  scrollbar-width: none;
+}
+
+.settings-page::-webkit-scrollbar,
+.settings-page *::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .settings-page-header,
+  .settings-section,
+  .settings-info,
+  .settings-eyebrow,
+  .settings-page-header h1,
+  .settings-page-header p,
+  .settings-header-actions {
+    animation: none;
+  }
+
+  .settings-reset-button,
+  .settings-save-button,
+  .settings-select,
+  .settings-toggle,
+  .settings-toggle-knob,
+  .settings-card,
+  .settings-option,
+  .system-info-row,
+  .system-info-icon,
+  .settings-info,
+  .settings-info-icon {
+    transition: none;
+  }
+
+  .system-status-dot,
+  .system-status-dot::after {
+    animation: none;
+  }
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes settingsHeaderIn {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(-10px)
+      scale(0.99);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+@keyframes settingsTextIn {
+  from {
+    opacity: 0;
+
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes settingsActionsIn {
+  from {
+    opacity: 0;
+
+    transform:
+      translateX(8px)
+      scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateX(0)
+      scale(1);
+  }
+}
+
+
+@keyframes settingsSectionIn {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(12px)
+      scale(0.995);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+@keyframes settingsInfoIn {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(10px)
+      scale(0.99);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+@keyframes saveSuccess {
+  0% {
+    transform: scale(0.97);
+  }
+
+  55% {
+    transform: scale(1.03);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+@keyframes iconBounce {
+  0% {
+    transform: translateY(0);
+  }
+
+  45% {
+    transform: translateY(-2px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
